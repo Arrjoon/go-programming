@@ -41,13 +41,59 @@ func divide(a, b float64) (quot float64, ok bool) {
 	return
 }
 
-// ========== 7. VARIADIC — zero or more args of the same type ==========
+// ========== 7. VARIADIC FUNCTIONS ==========
+// ...type means "zero or more arguments of this type"
+// inside the function, the name is a slice (nums is []int)
+
+// 7a. only variadic args
 func sum(nums ...int) int {
 	total := 0
 	for _, n := range nums {
 		total += n
 	}
 	return total
+}
+
+// 7b. fixed params first, variadic LAST (only the last param can use ...)
+func join(sep string, parts ...string) string {
+	if len(parts) == 0 {
+		return ""
+	}
+	result := parts[0]
+	for _, p := range parts[1:] {
+		result += sep + p
+	}
+	return result
+}
+
+// 7c. required first value + extra optional numbers
+func maxOf(first int, rest ...int) int {
+	m := first
+	for _, n := range rest {
+		if n > m {
+			m = n
+		}
+	}
+	return m
+}
+
+// 7d. mixed types with ...any (like fmt.Println)
+func printAll(values ...any) {
+	for i, v := range values {
+		fmt.Println(i, v)
+	}
+}
+
+// 7e. pass a variadic list into another variadic function
+func printSum(label string, nums ...int) {
+	fmt.Println(label, sum(nums...))
+}
+
+// 7f. variadic of functions — call every function you pass in
+func runAll(fns ...func()) {
+	for _, fn := range fns {
+		fn()
+	}
 }
 
 // ========== 8. FUNCTION TYPE (a name for a function signature) ==========
@@ -175,11 +221,33 @@ func main() {
 	_, ok = divide(10, 0)
 	fmt.Println("10 / 0 ok?", ok)
 
-	// 7. variadic — pass many values, or a slice with ...
+	// 7. variadic functions
+	// call with many values, with none, or unpack a slice with ...
 	fmt.Println("sum 1,2,3:", sum(1, 2, 3))
 	fmt.Println("sum none:", sum())
 	more := []int{4, 5, 6}
 	fmt.Println("sum slice:", sum(more...))
+
+	fmt.Println("join:", join("-", "go", "is", "fun"))
+	fmt.Println("join one:", join("-", "only"))
+	fmt.Println("join none:", join("-"))
+	words := []string{"a", "b", "c"}
+	fmt.Println("join slice:", join(",", words...))
+
+	fmt.Println("maxOf:", maxOf(3, 9, 2, 15, 7))
+	fmt.Println("maxOf one:", maxOf(8))
+
+	fmt.Println("printAll mixed types:")
+	printAll("arjun", 25, true, 3.14)
+
+	printSum("total", 10, 20, 30)
+	printSum("from slice", more...)
+
+	runAll(
+		func() { fmt.Println("first task") },
+		func() { fmt.Println("second task") },
+		func() { fmt.Println("third task") },
+	)
 
 	// 8 + 9. pass one function into another
 	fmt.Println("apply add:", apply(10, 3, add))
