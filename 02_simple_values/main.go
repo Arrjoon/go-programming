@@ -1,0 +1,20 @@
+package main
+
+import "fmt"
+
+// Simple values: strings, numbers, booleans.
+func main() {
+	// String
+	fmt.Println("go" + "lang")
+
+	// Integers
+	fmt.Println("1 + 1 =", 1+1)
+
+	// Floats
+	fmt.Println("7.0 / 3.0 =", 7.0/3.0)
+
+	// Booleans
+	fmt.Println(true && false)
+	fmt.Println(true || false)
+	fmt.Println(!true)
+}
