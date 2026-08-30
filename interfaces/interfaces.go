@@ -41,6 +41,8 @@ import "fmt"
 //	type Name interface {
 //	    MethodName(params) returnType
 //	}
+//
+// mainly used in open closed princeple in solid principle
 type speaker interface {
 	speak() string
 }
