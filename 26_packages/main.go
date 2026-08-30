@@ -5,6 +5,7 @@ import (
 
 	"github.com/arrjoon/myapplication/auth"
 	"github.com/arrjoon/myapplication/user"
+	"github.com/fatih/color"
 )
 
 func main() {
@@ -16,5 +17,7 @@ func main() {
 		Email: "nepaliarjun@gmail.com",
 		Name:  "Arjun",
 	}
-	fmt.Println(user.Email)
+	// fmt.Println(user.Email)
+	color.Red(user.Email)
+
 }
