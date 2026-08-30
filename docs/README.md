@@ -31,5 +31,7 @@ go run 01_hello_world/main.go
 | 19 | Generics | [19_generics.md](./19_generics.md) | `19_generics/generics.go` |
 | 20 | Interfaces | [20_interfaces.md](./20_interfaces.md) | `20_interfaces/interfaces.go` |
 | 21 | Goroutines | [21_goroutine.md](./21_goroutine.md) | `21_goroutine/goroutine.go` |
+| 22 | WaitGroup | — | `22_waitgroup/waitgroup.go` |
+| 23 | Channels | [23_channels.md](./23_channels.md) | `23_channels/channels.go` |
 
-Suggested order: **01 → 21**. Later lessons assume earlier ones.
+Suggested order: **01 → 23**. Later lessons assume earlier ones.
