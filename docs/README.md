@@ -33,5 +33,6 @@ go run 01_hello_world/main.go
 | 21 | Goroutines | [21_goroutine.md](./21_goroutine.md) | `21_goroutine/goroutine.go` |
 | 22 | WaitGroup | — | `22_waitgroup/waitgroup.go` |
 | 23 | Channels | [23_channels.md](./23_channels.md) | `23_channels/channels.go` |
+| 24 | Mutex | [24_mutex.md](./24_mutex.md) | `24_mutex/mutex.go` |
 
-Suggested order: **01 → 23**. Later lessons assume earlier ones.
+Suggested order: **01 → 24**. Later lessons assume earlier ones.
