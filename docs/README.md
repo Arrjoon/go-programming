@@ -34,5 +34,6 @@ go run 01_hello_world/main.go
 | 22 | WaitGroup | — | `22_waitgroup/waitgroup.go` |
 | 23 | Channels | [23_channels.md](./23_channels.md) | `23_channels/channels.go` |
 | 24 | Mutex | [24_mutex.md](./24_mutex.md) | `24_mutex/mutex.go` |
+| 25 | Files | [25_files.md](./25_files.md) | `25_fiels/files.go` |
 
-Suggested order: **01 → 24**. Later lessons assume earlier ones.
+Suggested order: **01 → 25**. Later lessons assume earlier ones.
